@@ -11,7 +11,7 @@ public final class Box<Wrapped> {
         self.wrappedValue = value
     }
 
-    public subscript<Value>(dynamicMember keyPath: WritableKeyPath<Wrapped, Value>) -> Value {
+    public subscript<Value>(dynamicMember keyPath: KeyPath<Wrapped, Value>) -> Value {
         wrappedValue[keyPath: keyPath]
     }
 }
