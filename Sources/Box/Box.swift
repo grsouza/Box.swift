@@ -1,10 +1,9 @@
-
 /// Box transforms any type into a reference type.
 @propertyWrapper
 @dynamicMemberLookup
 public final class Box<Wrapped> {
 
-    public var wrappedValue: Wrapped
+    public internal(set) var wrappedValue: Wrapped
 
     public var projectedValue: Box<Wrapped> { self }
 
@@ -13,8 +12,7 @@ public final class Box<Wrapped> {
     }
 
     public subscript<Value>(dynamicMember keyPath: WritableKeyPath<Wrapped, Value>) -> Value {
-        get { wrappedValue[keyPath: keyPath] }
-        set { wrappedValue[keyPath: keyPath] = newValue }
+        wrappedValue[keyPath: keyPath]
     }
 }
 
