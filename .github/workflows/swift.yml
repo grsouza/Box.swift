@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ${{ matrix.os }}
     
     strategy:
@@ -19,4 +19,4 @@ jobs:
     - name: Build
       run: swift build
     - name: Run tests
-      run: swift test --enable-test-discovery
+      run: swift test 
