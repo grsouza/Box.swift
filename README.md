@@ -53,6 +53,8 @@ func updateEmail(of user: MutableBox<User>) {
     user.email = "newemail@grds.dev")
 }
 
+updateEmail(of: user)
+
 assert(user.email == "newemail@grds.dev")
 ```
 
