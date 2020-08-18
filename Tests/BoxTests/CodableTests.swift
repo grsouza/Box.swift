@@ -9,7 +9,12 @@ class CodableTests: XCTestCase {
 
         let data = try! JSONEncoder().encode(model)
 
+        #if os(Linux)
+        let expected = "{\"box\":1,\"id\":\"\(id.uuidString)\"}"
+        #else
         let expected = "{\"id\":\"\(id.uuidString)\",\"box\":1}"
+        #endif
+
         XCTAssertEqual(expected, String(data: data, encoding: .utf8)!)
     }
 
@@ -30,7 +35,12 @@ class CodableTests: XCTestCase {
 
         let data = try! JSONEncoder().encode(model)
 
+        #if os(Linux)
+        let expected = "{\"box\":1,\"id\":\"\(id.uuidString)\"}"
+        #else
         let expected = "{\"id\":\"\(id.uuidString)\",\"box\":1}"
+        #endif
+
         XCTAssertEqual(expected, String(data: data, encoding: .utf8)!)
     }
 
