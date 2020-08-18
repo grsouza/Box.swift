@@ -9,13 +9,10 @@ class CodableTests: XCTestCase {
 
         let data = try! JSONEncoder().encode(model)
 
-        #if os(Linux)
-        let expected = "{\"box\":1,\"id\":\"\(id.uuidString)\"}"
-        #else
-        let expected = "{\"id\":\"\(id.uuidString)\",\"box\":1}"
-        #endif
-
-        XCTAssertEqual(expected, String(data: data, encoding: .utf8)!)
+        let expected1 = "{\"box\":1,\"id\":\"\(id.uuidString)\"}"
+        let expected2 = "{\"id\":\"\(id.uuidString)\",\"box\":1}"
+        let got = String(data: data, encoding: .utf8)!
+        XCTAssertTrue(expected1 == got || expected2 == got)
     }
 
     func testBoxShouldDecodeValue() {
@@ -35,13 +32,10 @@ class CodableTests: XCTestCase {
 
         let data = try! JSONEncoder().encode(model)
 
-        #if os(Linux)
-        let expected = "{\"box\":1,\"id\":\"\(id.uuidString)\"}"
-        #else
-        let expected = "{\"id\":\"\(id.uuidString)\",\"box\":1}"
-        #endif
-
-        XCTAssertEqual(expected, String(data: data, encoding: .utf8)!)
+        let expected1 = "{\"box\":1,\"id\":\"\(id.uuidString)\"}"
+        let expected2 = "{\"id\":\"\(id.uuidString)\",\"box\":1}"
+        let got = String(data: data, encoding: .utf8)!
+        XCTAssertTrue(expected1 == got || expected2 == got)
     }
 
     func testMutableBoxShouldDecodeValue() {
