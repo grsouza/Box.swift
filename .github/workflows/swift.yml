@@ -2,21 +2,21 @@ name: Swift
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build-and-test:
     runs-on: ${{ matrix.os }}
-    
+
     strategy:
       matrix:
         os: [macos-latest, ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build
-    - name: Run tests
-      run: swift test 
+      - uses: actions/checkout@v2
+      - name: Build
+        run: swift build --enable-test-discovery
+      - name: Run tests
+        run: swift test --enable-test-discovery
