@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import XCTest
 import Box
 
@@ -59,3 +60,4 @@ private struct MutableCodableModel: Codable, Equatable {
     let id: UUID
     let box: MutableBox<Int>
 }
+#endif
