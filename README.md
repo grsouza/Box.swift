@@ -1,5 +1,7 @@
 # Box
 ![Swift](https://github.com/grsouza/Box.swift/workflows/Swift/badge.svg?branch=master)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fgrsouza%2FBox.swift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/grsouza/Box.swift)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Fgrsouza%2FBox.swift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/grsouza/Box.swift)
 
 Micro library for Swift that makes possible to transform any value type into a reference type.
 
