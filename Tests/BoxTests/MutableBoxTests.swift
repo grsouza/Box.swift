@@ -18,5 +18,11 @@ final class MutableBoxTests: XCTestCase {
     
     XCTAssertEqual(box2.value.name, "New Box")
   }
+
+  func testMutableBox_customStringConvertible() {
+    XCTAssertEqual("\(box)", "Value: Box")
+    box.value.name = "New Box"
+    XCTAssertEqual("\(box)", "Value: New Box")
+  }
 }
 #endif

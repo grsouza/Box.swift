@@ -14,13 +14,21 @@ final class BoxTests: XCTestCase {
     
     XCTAssertEqual(boxAddress, box2Address)
   }
+
+  func testBox_customStringConvertible() {
+    XCTAssertEqual("\(box)", "Value: Box")
+  }
 }
 
 func address(of value: UnsafeRawPointer) -> Int {
   return Int(bitPattern: value)
 }
 
-struct Value {
+struct Value: CustomStringConvertible {
   var name: String
+
+  var description: String {
+    "Value: \(name)"
+  }
 }
 #endif

@@ -39,3 +39,11 @@ extension Box: Decodable where Wrapped: Decodable {
         try self.init(container.decode(Wrapped.self))
     }
 }
+
+extension Box: CustomStringConvertible where Wrapped: CustomStringConvertible {
+    public var description: String { value.description }
+}
+
+extension Box: CustomDebugStringConvertible where Wrapped: CustomDebugStringConvertible {
+    public var debugDescription: String { value.debugDescription }
+}
