@@ -4,13 +4,13 @@ import XCTest
 
 final class BoxTests: XCTestCase {
   
-  @Box(wrappedValue: Value(name: "Box")) var box
+  var box = Box(Value(name: "Box"))
   
   func testBox() {
-    let box2 = $box
+    let box2 = box
     
-    let boxAddress = address(of: &$box.wrappedValue)
-    let box2Address = address(of: &box2.wrappedValue)
+    let boxAddress = address(of: &box.value)
+    let box2Address = address(of: &box2.value)
     
     XCTAssertEqual(boxAddress, box2Address)
   }
