@@ -4,19 +4,25 @@ import XCTest
 
 final class MutableBoxTests: XCTestCase {
   
-  @MutableBox(wrappedValue: Value(name: "Box")) var box
+  var box = MutableBox(Value(name: "Box"))
   
   func testMutableBox() {
-    let box2 = $box
+    let box2 = box
     
-    let boxAddress = address(of: &$box.wrappedValue)
-    let box2Address = address(of: &box2.wrappedValue)
+    let boxAddress = address(of: &box.value)
+    let box2Address = address(of: &box2.value)
     
     XCTAssertEqual(boxAddress, box2Address)
     
-    box.name = "New Box"
+    box.value.name = "New Box"
     
-    XCTAssertEqual(box2.name, "New Box")
+    XCTAssertEqual(box2.value.name, "New Box")
+  }
+
+  func testMutableBox_customStringConvertible() {
+    XCTAssertEqual("\(box)", "Value: Box")
+    box.value.name = "New Box"
+    XCTAssertEqual("\(box)", "Value: New Box")
   }
 }
 #endif

@@ -5,3 +5,11 @@ pod_push:
 .PHONY: pod_lint
 pod_lint:
 	@pod spec lint Box.swift.podspec
+
+.PHONY: build
+build:
+	@swift build --enable-test-discovery
+
+.PHONY: test
+test:
+	@swift test --enable-test-discovery
