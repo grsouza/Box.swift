@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import XCTest
 @testable import Box
 
@@ -22,3 +23,4 @@ func address(of value: UnsafeRawPointer) -> Int {
 struct Value {
   var name: String
 }
+#endif

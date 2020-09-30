@@ -1,3 +1,4 @@
+#if !os(watchOS)
 import XCTest
 @testable import Box
 
@@ -18,3 +19,4 @@ final class MutableBoxTests: XCTestCase {
     XCTAssertEqual(box2.name, "New Box")
   }
 }
+#endif
